@@ -1,11 +1,35 @@
 import math
 def main():
-    #TODO: IF STATEMENT TO CHOOSE QUESTION AND LOOP
-    PrintQuestionOne()
-    PrintQuestionTwo()
-    PrintQuestionThree()
+    print("Welcome to Hanna's Homework.")
 
+    Choose_other_question = True
+    
+    while Choose_other_question == True:
+        print("Would you like to see question one, two, or three? (enter 1, 2, or 3)")
+        User_choice = int(input())
+        
+        if User_choice == 1:
+            PrintQuestionOne()
+        elif User_choice == 2:
+            PrintQuestionTwo()
+        elif User_choice == 3:
+            PrintQuestionThree()
+        else:
+            print("Press 1, 2, or 3.")
+
+        print("Do you want to see another question?")
+        print("Enter Y for yes, enter N for no.")
+        yes_or_no = input()
+
+        if yes_or_no == 'N':
+            Choose_other_question = False
+    print("Goodbye.")
+        
 def PrintQuestionOne():
+    print("Write a program using integers user_num and x as input,")
+    print("and output user_num divided by x three times.")
+    print()
+    
     print("Enter input one.")
     user_num_1 = input()
     print("Enter input two.")
@@ -20,7 +44,12 @@ def PrintQuestionOne():
         print(str(int(output)))
     
 def PrintQuestionTwo():
-    #TODO: OUTPUT TO TWO DECIMAL PLACES
+    print("Write a program with a car's miles per gallon and gas")
+    print("dollar per gallon (both floats) as input, and output")
+    print("the gas cost for 20 miles, 75 miles, and 500 miles.")
+    print("Output each floating point value with 2 digit after the decimal.")
+    print()
+          
     Question_answered = False
     while Question_answered == False:
         print("Enter miles per gallon.")
@@ -35,7 +64,8 @@ def PrintQuestionTwo():
         miles = int(miles)
     
         cost_per_gallon = miles / miles_per_gallon * dollars_per_gallon
-        print("Cost of", str(miles), "mile trip: ", str(cost_per_gallon), "dollars")
+        format_cost_per_gallon = "{:.2f}".format(cost_per_gallon)
+        print("Cost of", str(miles), "mile trip: ", str(format_cost_per_gallon), "dollars")
 
         print("Would you like to run again? Y or N")
         User_answer = input()
@@ -43,23 +73,38 @@ def PrintQuestionTwo():
             Question_answered = True
 
 def PrintQuestionThree():
-    #TODO: OUTPUT DECIMAL PLACES TO TWO DIGITS
+    print("Given three floating point values x, y, and z, output x")
+    print("to the power of z, x to the power of (y to the power of z,)")
+    print("the absolute value of x minus y, and the square root of x")
+    print("to the power of z. Output each floating point value with")
+    print("two digits after the decimal point.")
+    print()
+    
+    print("Enter value for x.")
     x = input()
+    print("Enter value for y.")
     y = input()
+    print("Enter value for z.")
     z = input()
 
-    print(float(x)**float(y))
+    print("x^z =")
+    x_z = (float(x)**float(z))
+    format_x_z = "{:.2f}".format(x_z)
+    print(format_x_z)
     
-    print(float(x)**(float(y)**float(z)))
+    print("x^y^z =")
+    x_y_z = (float(x)**(float(y)**float(z)))
+    format_x_y_z = "{:.2f}".format(x_y_z)
+    print(format_x_y_z)
 
-    print(abs((float(x) - float(y))))
-    ans = math.sqrt(float(x))**float(z)
-    print(str(ans))
+    print("Absolute value of x - y =")
+    abs_x_y = (abs((float(x) - float(y))))
+    format_abs_x_y = "{:.2f}".format(abs_x_y)
+    print(format_abs_x_y)
     
-    
-        
-    
-
-
-    
+    print("Square root of x^z")
+    sqrt_x_z = math.sqrt(float(x))**float(z)
+    format_sqrt_x_z = "{:.2f}".format(sqrt_x_z)
+    print(format_sqrt_x_z)
+      
 main()
